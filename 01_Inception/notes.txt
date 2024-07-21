@@ -1,0 +1,41 @@
+https://chatgpt.com/share/47e55b07-67b5-40d6-8681-80cd8cec999e
+go through this link I asked all doubts here 
+
+1) what is Emmet? 
+ Emmet is a popular toolkit for web developers that provides a set of tools and shortcuts to improve productivity.
+ It is especially useful for quickly writing HTML and CSS code. Emmet works by expanding abbreviations into full-fledged code snippets.
+ once refer chatgpt to know more
+
+2) about cdn? 
+ A CDN (Content Delivery Network) is a system of distributed servers that deliver web content to users based on 
+ their geographic location,improving performance and relability. CDNs cache content closer to users, reducing load 
+ times and server strain, providing scalability, and enhancing security. Using a CDN offers advantages like faster 
+ content delivery, load balancing, and cost efficiency compared to directly downloading from a single server.
+
+3)what is crossorigin in script tag?  
+ A crossorigin is a request for a resource (eg stylesheets,images,font) from another domain 
+
+4)why 2 CDN links are embedded in the code?
+ First one is react.development.js which contains core react functions and code
+ second one is react-dom.development.js which is for DOM manipulations this file is kind of a bridge between react and browser.
+
+5)React developed by?
+ Developers of facebook
+
+6)Why DOM manipulation is costly? and concept of virtual DOM?
+ without using react while performing DOM manipulation the change in DOM tree are made directly which 
+ leads to high computational cost,inefficent  and error performance.
+
+ To overcome this problem react uses a concept called virtual DOM: whenever there is a need for changes in DOM tree
+ react copies a virtual DOM perform DOM operations on and carefully manipulate DOM tree with least cost possible.
+
+
+7)is order of script files is mandatory?
+ yes, order of script files is mandatory for suppose if i placed app.js script tag before 2 cdn react tags it throws error
+ because the react functions are not rendered yet
+
+8)library vs framework?
+ Library can work in a small  part of an application unlike framework
+ frameworks needs to be used in a fullfledged manner in overall application
+ react can be used in existing web application 
+ we can insert small part or feature using react
