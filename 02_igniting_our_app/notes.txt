@@ -1,0 +1,243 @@
+1)will react make our app faster?
+yes upto certain extent app becomes faster due to the concept of virtual dom
+
+2)npm
+It does not have any full form it stands for nothing it is not node package manager
+it manages packages
+alla the packages and utilites that we need in a project come from npm
+https://www.npmjs.com/ check this out
+
+3)what important package/dependencies do we need to install?
+Bundler-> our whole code needs to be bundled together, it needs to be minified, cached, compressed, cleaned before we send it to productions
+examples:webpac,parcel,vite
+bundler packages our app so that is can be shift to prodcution easily
+
+4) parcel installatioin?
+npm install -D parcel
+
+5) package.json=>it keeps approax version of dependencies
+6) package-lock.json=>lock.js keeps exact version of all the depdendencies in case of any problem occured in other machine it is easy to verify with this
+
+7) what is node-modules?
+all the code we fetch from npm.
+it's like database for dependencies.
+dependencies required for a dependecy is called transtive dependency. so every dependency also have their own package.json file
+ex:for parcel depdencies it needs many more depdendecies to work so other depdencies will installed 
+every dependency will have package.json with dev and normal dependencies
+
+8)should we need to put node modules in the git?
+no we have package.json and package-lock.json using them we can download again
+if we include node modules the code becomes much bulkier it is waste to share such bulky modules when we are able to download ourselves
+so in short what we can regenerate(node_modules) dont put in the github
+
+9) what is .gitignore?
+when we dont want anything to not go into git or github or production we will keep those file names in gitignore file
+we keep node modules folder name (ie node_modules) in the .gitignore file
+
+10) should we need to put package.json and package-lock.json on git?
+yes which are helpful to download our node_modules
+even if i  delete node_modules we can get back with the help of package.json and package-lock.json just type "npm install" it will recreate all the node_modules.
+
+11)Ignite the app
+npx parcel index.html
+parcel has create a server
+npm-> command of npm
+npx->executing a package
+
+12)ways to get react in our application
+a) npm
+b)cdn links-> not recommended as we already used parcel where react will also get downloaded
+or
+we can download like this
+npm install react or npm i react
+npm install react-dom or npm i react-dom
+
+13) how to use react in file after modules installation?
+import React from "react"
+import ReactDOM from "react-dom"
+ 
+ 14)types of dependencies?
+ dev depencdency:depdencies required only in development phase
+ normal dependency:depdencies required in production
+
+ 15) caret(^) and tilde(~)
+Tilde (~) notation:
+The tilde (~) notation is employed to match the latest patch version while freezing the major and minor versions. This notation is useful for automatically accepting bug fixes, considering that patch updates primarily address bugs.
+Example: The ~1.2.0 will update all the future patch updates. We have to write just ~1.2.0 and all the next patch update dependencies. For example, 1.2.**1,** 1.2.**2,** 1.2.**5**……………1.2.x.
+Note: Patch updates are very small security changes in a package that is why the **~version** is approximately equivalent to the version.
+its not a default notation for npm
+Caret (^) notation:
+It automatically updates both minor and patch updates.
+Example: The ^1.2.4 will update all the future **Minor** and **patch** updates, for example, ^1.2.4 will automatically change the dependency to **1.x.x** if any update occurs.
+Using caret notation it is important to look at our code regularly if it is compatible with the newest version or not.
+its a default notation for npm
+
+16)npm vs npx
+npm->installing package
+npx->to execute a package
+
+17)using cdn links for react is not prefered
+→fetching from cdn is costly operation from web
+→if i have react in node modules it is very easy to access it.
+
+18) while running using parcel(npx parcel index.html) changes made in components are immediatly refreshed in webpage
+with the help of feature called "HMR"(HOT MODULE REPLACEMENT)
+which makes our development smooth
+->this HMR feature is implemented using "FILE WATCHING ALGORITHM"(which is written in c)
+
+19) functions of parcel
+Dev build
+local server
+HMR=hot module REPLACEMENT(file watching algorithm(reads files and refresh page incase if changes happen))
+caching
+image optimization
+minification
+bundling
+compress
+consistent hasing
+code splitting
+differential bundling-your app can be opened in different browsers so it should be bundled accordingly to the browsers
+diagnostics
+error handling
+parcel gives feature to host in https
+tree shaking algo-remove unused code 
+different dev and production bundles
+
+20) how to make a production build?
+npx parcel build index.html
+remove "main":"App.js" while doing this because we are aready giving and entry point in the command
+it will get confused wehre to go
+the code is optimized and compresed into files of dist folder after production build
+.parcel-cache and dist folders will be generated if build a production a build
+
+21)broswer list depdendency?
+we can mention the broswers and their versions where the application only work other browsers and version which are not included the app will wont work there
+check out: broswerslist.dev
+this feature will reduce cost
+example: gov websites should work for almost all broswers even older versions its mandatory
+i have created and developer specific application which will be supported by few broswer and newer versions is enough
+
+
+
+
+ASSIGNMENT
+Sure, here are the answers to the theory questions:
+
+### Theory:
+
+1. **What is `npm`?**
+   - `npm` (Node Package Manager) is a package manager for JavaScript. It helps manage and install packages or libraries for your projects.
+
+2. **What is `Parcel/Webpack`? Why do we need it?**
+   - Parcel and Webpack are module bundlers for JavaScript applications. They help bundle your code and its dependencies into a single file or smaller chunks, improving performance and simplifying deployment.
+
+3. **Why is `.parcel-cache`?**
+   - `.parcel-cache` is a directory used by Parcel to store intermediate build files to speed up subsequent builds by caching unchanged files.
+
+4. **What is `npx`?**
+   - `npx` is a tool that comes with `npm` to execute binaries from the npm registry without installing them globally.
+
+5. **What is the difference between `dependencies` vs `devDependencies`?**
+   - `dependencies` are packages required for the application to run, whereas `devDependencies` are needed only for development (e.g., testing, building).
+
+6. **What is Tree Shaking?**
+   - Tree shaking is a technique to remove unused code from the final bundle, reducing the bundle size and improving performance.
+
+7. **What is Hot Module Replacement?**
+   - Hot Module Replacement (HMR) is a feature that allows updating modules in a running application without a full reload, improving development speed.
+
+8. **List down your favourite 5 superpowers of Parcel and describe any 3 of them in your own words.**
+   - Fast performance
+   - Zero configuration
+   - Hot Module Replacement (HMR)
+   - Automatic code splitting
+   - Tree shaking
+
+   **Zero configuration:** Parcel works out of the box without needing a configuration file, making it easy to set up.
+   
+   **Automatic code splitting:** Parcel splits your code into smaller chunks automatically, optimizing load times.
+   
+   **Tree shaking:** Removes unused code, resulting in smaller bundle sizes and better performance.
+
+9. **What is `.gitignore`? What should we add and not add into it?**
+   - `.gitignore` is a file that specifies which files and directories should be ignored by Git. Typically, you add `node_modules`, build output directories like `dist`, and sensitive data files. Do not add source code or configuration files needed for the project.
+
+10. **What is the difference between `package.json` and `package-lock.json` files?**
+    - `package.json` lists the project dependencies and scripts, while `package-lock.json` locks the exact versions of dependencies installed, ensuring consistent installs across different environments.
+
+11. **Why should I not modify `package-lock.json`?**
+    - Modifying `package-lock.json` manually can lead to inconsistencies and unexpected behavior in dependency resolution.
+
+12. **What is `node_modules`? Is it a good idea to push that on git?**
+    - `node_modules` is a directory where npm installs the project dependencies. It is not a good idea to push this to Git because it can be large and the dependencies are defined in `package.json`.
+
+13. **What is the `dist` folder?**
+    - The `dist` folder contains the production build of your application, including all the bundled, minified, and optimized files ready for deployment.
+
+14. **What is `browserlists`?**
+    - `browserslist` is a tool that specifies which browsers to support in your project, enabling compatibility settings for tools like Babel and Autoprefixer.
+
+15. **Read about different bundlers: vite, webpack, parcel.**
+    - Vite is a next-generation frontend build tool with a focus on speed and performance.
+    - Webpack is a widely-used and highly configurable module bundler.
+    - Parcel is a zero-configuration bundler that aims for simplicity and ease of use.
+
+16. **Read about: `^-caret` and `~-tilde`.**
+    - `^` (caret) allows updates that do not change the left-most non-zero digit (e.g., `^1.2.3` matches `1.x.x`).
+    - `~` (tilde) allows updates to the most recent patch version (e.g., `~1.2.3` matches `1.2.x`).
+
+17. **React about Script types in html(MDN Docs)**
+    - The `<script>` element in HTML is used to embed or reference executable code. The `type` attribute specifies the MIME type of the script, such as `text/javascript` for JavaScript.
+
+### Coding:
+
+1. **Initialize `npm` into your repo:**
+   ```bash
+   npm init -y
+   ```
+
+2. **Install `react` and `react-dom`:**
+   ```bash
+   npm install react react-dom
+   ```
+
+3. **Remove CDN links of react** from your HTML file.
+
+4. **Install parcel:**
+   ```bash
+   npm install parcel
+   ```
+
+5. **Ignite your app with `parcel`:**
+   ```bash
+   npx parcel index.html
+   ```
+
+6. **Add script for "start" and "build" with parcel commands** in `package.json`:
+   ```json
+   "scripts": {
+     "start": "parcel index.html",
+     "build": "parcel build index.html"
+   }
+   ```
+
+7. **Add `.gitignore` file:**
+   ```plaintext
+   node_modules
+   dist
+   .parcel-cache
+   ```
+
+8. **Add `browserlists`:** Create or update `package.json`:
+   ```json
+   "browserslist": [
+     ">0.2%",
+     "not dead",
+     "not op_mini all"
+   ]
+   ```
+
+9. **Build a production version of your code using `parcel build`:**
+   ```bash
+   npm run build
+   ```
