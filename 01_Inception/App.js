@@ -6,16 +6,22 @@
 
 
 //Manipulate the HTML DOM using REACT
+
+//step 1
 const heading=React.createElement("h1",{id:"heading"},"using react")// this is an object once try by printing it
+
 //3 arguments of createElement
 //1:"h1":type of html element we are gonna use
 //2:this object is the place where we will give attributes like id,styles etc... 
 //3:"using react":the thing which we are gonna put in html element
 
+//step2
 const root=ReactDOM.createRoot(document.getElementById("root"))
+
 //creating element is core thing of React
 //but creating root and rendering something in it this job is taken care by ReactDOM because its 
 
+//step3
 root.render(heading)
 
 //nesting ex like we do in html <div><div><h1></h1></div></div>
@@ -66,4 +72,7 @@ const container=React.createElement(
     },
     [heading1,heading2]//2 elements contained together
 )
+
+//const root=ReactDOM.createRoot(document.getElementById("root"))
+
 root.render(container)
