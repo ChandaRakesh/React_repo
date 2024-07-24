@@ -1,0 +1,124 @@
+1)adding run commands in scripts so that we dont need to type "npx parcel index.html"
+in package.json
+"scripts": {
+    "test": "jest",
+    "start":"parcel index.html",
+    "build":"parcel build index.html"
+  },
+npm run start or npm start // for parcel index.html
+npm run build //for parcel build index.html
+
+2)is jsx is part of react? NO
+const heading1=React.createElement(
+    "h1",
+    {
+        id:"title",
+    },
+    "I am h1 heading"
+)
+abovesyntax of creating react element will be a headache nesting of multple tags
+it reduces readability so we use JSX 
+
+3)Amalgamation of html and js is JSX
+framworks and libraries like react try to merge html and js together so we do all things in the same file
+lot of developers think jsx means html inside js no it is not it is JSX=> JSX consists HTML like similar syntax
+
+4) core react vs JSX
+creation of an react element using core react
+const heading1=React.createElement(
+    "h1",
+    {
+        id:"heading",
+    },
+    "I am h1 heading"
+)
+
+create of an react element using JSX
+const jsxHeading=<h1 id="heading">I am h1 heading</h1>
+
+5)is jsx is valid javascript?
+it is valid javascript but not pure javascript.
+
+js engine should understand js but jsx wont be understanded by the js engine
+
+browsers cant directly understand jsx
+
+jsx code is translated/transpiled(by parcel(by a subpackage called **babel**))  before it is going to js engine
+
+6)BABEL-the trans piler/js compiler
+takes jsx and converts to code that js engine can understand
+JSX ⇒ React.createElement ⇒ ReactElement⇒ js object ⇒ html element
+babel is an opensource js compiler
+https://babeljs.io/
+few old browsers wont be able to understand the newer versions of js. babel transpile that es6 code into code that older browsers understand.
+
+7)why we dont able to use class in jsx syntax instead we use className
+we can use  class instead we use className in the jsx where as we use class in html
+const jsxHeading=<h1 id="heading" className="head">Namaste React using JSX</h1>
+
+in jsx the attributes  will be in camel case
+const jsxHeading=<h1 id="heading" className="head" tabIndex="1">Namaste React using JSX</h1>
+
+where as in html we dont use camel case
+<h1 id="heading" class="head" tabindex="1">Namaste React using JSX</h1>
+
+8)what is component composition
+embedding one or more components inside other component
+in page component we included title and subtitle component
+
+const Page=()=>{return(
+    <div id="container">
+        <Title/>
+        <SubTitle></SubTitle>
+    </div>
+)};
+
+9)writing javascript inside jsx using {}
+we will be able to any kind of js code inside using {} inside jsx
+even console.log() works
+all hail to parcel and babble for this features
+
+const number=100000
+const Page1=()=>(
+    <div id="container">
+        <Title/>  {/*way to embbed a react functional component*/}
+        <SubTitle></SubTitle>
+        {heading} {/* way to embbed an react element */}
+        {} {/*also we can write any kind ofjavascript code inside braces*/}
+        <h1>{number}</h1>
+        {100+200}{/*gives 300 on browswer screen*/}
+        {console.log("gibberishhhhh")}
+    </div>
+);
+
+
+10)lets mix and match components and elements way we like(nesting)
+
+we can use react element inside functional component
+
+we can use functional component inside react element
+
+we can use functional component inside functional component
+
+we can use react element inside react element
+
+11)jsx protects from hacking(cross site scripting)
+const data= api.getData()// if tries some send malicious data
+const comp=()=>(
+    {data}
+)
+
+when someone tries to send malicious code into a embedded js in jsx({   }) jsx will protect from this attacks it takes care of injection attacks it escapes such injections
+
+it will sanitize the data which is coming it prevents cross site scripting
+
+jsx sanitizes everything
+
+12) types of react components style of writing
+Class Based Component -OLD way
+Functional Component -NEW Way="a function which return a react element."
+
+functional components names must be start with capital letters because we use them as tags in the JSX 
+where all JSX buildin tags will be with start with small letters.otherwise it throws error
+
+
